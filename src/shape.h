@@ -4,6 +4,11 @@
 
 #include "geometry.h"
 
+/*! \file
+    \brief Declaration for Shape descriptor and some definitions
+*/
+
+//! \brief supported shape types
 enum class ShapeType {
     unknown,
     line,
@@ -12,9 +17,13 @@ enum class ShapeType {
     circle
 };
 
+//! \brief shape info, line color, fill color and tag
 struct ShapeState {
+//! \brief foreground color (line)
     Color _fg;
+//! \brief background color (fill)
     Color _bg;
+//! \brief short informational tag
     std::string _tag;
 
     ShapeState() : _fg(0, 0, 0, 0), _bg(0, 0, 0, 0), _tag("") {}
@@ -22,15 +31,19 @@ struct ShapeState {
     ShapeState(const ShapeState& state): _fg(state._fg), _bg(state._bg), _tag(state._tag) {}
 };
 
+//! \brief base shape descriptor
 class IShape
 {
 public:
+//! \brief shape descriptor type
     virtual ShapeType type() = 0;
 };
+//! \brief sequence of shape descriptors
 using Shapes = std::vector<IShape*>;
 
 // specific shapes
 
+//! \brief shape with state
 class Shape : public IShape
 {
 public:
@@ -40,6 +53,7 @@ public:
     Shape(const ShapeState& state) : _state(state) {}
 };
 
+//! \brief shape descriptor which represent line connecting two points
 class ShapeLine : public Shape
 {
 public:
@@ -52,6 +66,7 @@ public:
     ShapeLine(const ShapeState& state, const Point& p1, const Point& p2) : Shape(state), _p1(p1), _p2(p2) {}
 };
 
+//! \brief shape descriptor which represent polyline connecting several point, may be closed and filled
 class ShapePolyLine : public Shape
 {
 public:
@@ -64,6 +79,7 @@ public:
     ShapePolyLine(const ShapeState& state, const Points& pts, bool closed) : Shape(state), _pts(pts), _closed(closed) {}
 };
 
+//! \brief shape descriptor which represent rect
 class ShapeRect : public Shape
 {
 public:
@@ -74,6 +90,7 @@ public:
     ShapeRect(const ShapeState& state, const Rect& r) : Shape(state), _r(r) {}
 };
 
+//! \brief shape descriptor which represent circle with origin point and radius
 class ShapeCircle : public Shape
 {
 public:

@@ -8,6 +8,10 @@
 
 #include "app.h"
 
+/*! \file
+    \brief Definitions for \ref app.h for the case of SDL2 library
+*/
+
 namespace SDL2App
 {
 

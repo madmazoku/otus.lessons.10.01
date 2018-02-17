@@ -3,6 +3,11 @@
 #include <vector>
 #include <algorithm>
 
+/*! \file
+    \brief Utility structures for 2d geometry
+*/
+
+//! \brief Point in 2d space
 struct Point {
     int32_t _x;
     int32_t _y;
@@ -11,11 +16,14 @@ struct Point {
     Point(size_t x, size_t y): _x(x), _y(y) {}
     Point(const Point& p): _x(p._x), _y(p._y) {}
 };
-
+//! \brief Sequence of points
 using Points = std::vector<Point>;
 
+//! \brief Rectangle defined by left top and right bottom corners
 struct Rect {
+//! \brief left top point
     Point _lt;
+//! \brief right bottom point
     Point _rb;
 
     Rect() : _lt(0, 0), _rb(0, 0) {}
@@ -28,10 +36,15 @@ struct Rect {
     }
 };
 
+//! \brief Color defined by Red, Green, Blue levels, plus transparency alpha
 struct Color {
+//! \brief red
     uint8_t _r;
+//! \brief green
     uint8_t _g;
+//! \brief blue
     uint8_t _b;
+//! \brief alpha (transparency)
     uint8_t _a;
 
     Color() : _r(0), _g(0), _b(0), _a(0) {}

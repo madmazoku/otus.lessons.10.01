@@ -7,22 +7,39 @@
 
 #include "button.h"
 
+/*! \file
+    \brief Declarations for vektor application state and event handlers
+*/
+
+//! \brief Event handlers definitions which vektor app will use
 enum class EventHandlerType {
+//! \brief main event handler used when nothing to do
     main,
+//! \brief event handler which is used in poly_line adding mode
     poly_line
 };
+//! \brief map for vektor app event handlers
 using EventHandlers = std::map<EventHandlerType, IEventHandler*>;
 
+//! \brief state of vektor application
 struct VektorState {
+//! \brief window size
     Point _size;
+//! \brief current state to be applied to new added shape
     ShapeState _shape_state;
+//! \brief sequence of shapes to be used as interface
     Shapes _interface_shapes;
+//! \brief sequence of shapes to be used as scene
     Shapes _scene_shapes;
+//! \brief sequence of temporarly mutable shapes
     Shapes _temporary_shapes;
 
+//! \brief map of event handlers which may be used by vektor application
     EventHandlers _event_handlers;
+//! \brief sequence of GUI buttons to be displayed and interacted
     Buttons _buttons;
 
+//! \brief cleanup sequence of shapes
     void free_shapes(Shapes& shapes)
     {
         for(auto s : shapes)
@@ -32,13 +49,6 @@ struct VektorState {
 
     VektorState(const Point& size) : _size(size), _shape_state(Color(0xff, 0xff, 0xff, 0xff), Color(0x00, 0x00, 0x00, 0x00), "")
     {
-        _buttons.push_back(new ButtonLine(Point(30, 30), 25));
-        _buttons.push_back(new ButtonPolyLine(Point(90, 30), 25));
-        _buttons.push_back(new ButtonRect(Point(150, 30), 25));
-        _buttons.push_back(new ButtonCircle(Point(210, 30), 25));
-        _buttons.push_back(new ButtonWrite(Point(270, 30), 25));
-        _buttons.push_back(new ButtonRead(Point(330, 30), 25));
-
         _interface_shapes.push_back(
             new ShapeRect(
                 ShapeState(
@@ -64,11 +74,13 @@ struct VektorState {
         free_shapes(_scene_shapes);
     }
 
+//! \brief ask window to render all types of sequences of shapes in proper order
     bool render(IWindow* window)
     {
         return !(window->render(_interface_shapes) && window->render(_scene_shapes) && window->render(_temporary_shapes));
     }
 
+//! \brief find shape by its tag in sequence of shapes
     Shape* by_tag(const Shapes& shapes, const std::string tag)
     {
         for(auto s : shapes) {
@@ -80,6 +92,7 @@ struct VektorState {
     }
 };
 
+//! \brief Main EventHandler, it is used from the start and between other modes
 class MainEventHandler : public IEventHandler
 {
 public:
@@ -166,6 +179,7 @@ public:
     MainEventHandler(VektorState& vektor_state) : _vektor_state(vektor_state) { }
 };
 
+//! \brief PolyLine EventHandler, it is used when poly_line is edited
 class PolyLineEventHandler : public IEventHandler
 {
 public:

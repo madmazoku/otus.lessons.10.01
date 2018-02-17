@@ -2,6 +2,10 @@
 
 #include "shape.h"
 
+/*! \file
+    \brief overrides for geometry and shapes to be used with in/out streams
+*/
+
 std::ostream& operator<<(std::ostream& out, const Point& p)
 {
     out << p._x << ' ' << p._y;

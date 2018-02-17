@@ -1,0 +1,14 @@
+/*! \mainpage Vektor - simple GUI-based vector editor
+ *
+ * This project have a lot to expand.  * Currently only polyline can be drawn.
+ * - \ref app.h "App declaration of interfaces to system libraries"
+ * - \ref event.h "Event declaration and some definitions"
+ * - \ref sdl2_app.h "App definitions for SDL2 library"
+ * - \ref geometry.h "Utility geometry structs"
+ * - \ref shape.h "Shape declaration and some definitions"
+ * - \ref shape_io.h "Shape stream input/output definitions"
+ * - \ref button.h "Button for GUI declarations and definitions"
+ * - \ref vektor.h "GUI State and Event behaviour definitions"
+ * - \ref main.cpp "main application file"
+ *
+ */ 

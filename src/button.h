@@ -1,25 +1,37 @@
 #pragma once
 
 #include "shape.h"
-#include "shape_io.h"
 
+/*! \file
+    \brief Declaration of button class to be used as GUI buttons in vektor application
+*/
+
+//! \brief Button descriptor
 class IButton
 {
 public:
+//! \brief button tag
     virtual std::string tag() = 0;
+//! \brief button background tag
     virtual std::string tag_bg() = 0;
+//! \brief add button image to sequence of shapes
     virtual void add_to_shapes(Shapes&) = 0;
+//! \brief check if point is in button area
     virtual bool point_in(const Point&) = 0;
 };
+//! \brief sequence of button descriptors
 using Buttons = std::vector<IButton*>;
 
+//! \brief square button which have solid background and edge and placed around origin with radius
 class ButtonSquare : public IButton
 {
 public:
 
+//! \brief check if point is in square
     virtual bool point_in(const Point& p) final {
         return std::abs(p._x - _o._x) < _r && std::abs(p._y - _o._y) < _r;
     }
+//! \brief add background square to sequence of shapes
     virtual void add_to_shapes(Shapes& shapes) override
     {
         shapes.push_back(
@@ -34,15 +46,19 @@ public:
         );
     }
 
+//! \brief button origin
     Point _o;
+//! \brief offset to corners from origin
     size_t _r;
 
+//! \brief tag for background square
     std::string tag_bg() final { return tag() + "_bg"; }
 
     ButtonSquare() : _o(0, 0), _r(0) {}
     ButtonSquare(const Point& o, size_t r) : _o(o), _r(r) {}
 };
 
+//! \brief button will draw line in square with tag line
 class ButtonLine : public ButtonSquare
 {
 public:
@@ -66,6 +82,7 @@ public:
     ButtonLine(const Point& o, size_t r) : ButtonSquare(o, r) {}
 };
 
+//! \brief button will draw polyline in square with tag polyline
 class ButtonPolyLine : public ButtonSquare
 {
 public:
@@ -94,6 +111,7 @@ public:
     ButtonPolyLine(const Point& o, size_t r) : ButtonSquare(o, r) {}
 };
 
+//! \brief button will draw rectangle in square with tag rect
 class ButtonRect : public ButtonSquare
 {
 public:
@@ -117,6 +135,7 @@ public:
     ButtonRect(const Point& o, size_t r) : ButtonSquare(o, r) {}
 };
 
+//! \brief button will draw circle in square with tag circle
 class ButtonCircle : public ButtonSquare
 {
 public:
@@ -140,6 +159,7 @@ public:
     ButtonCircle(const Point& o, size_t r) : ButtonSquare(o, r) {}
 };
 
+//! \brief button will draw symbol 'W' in square with tag write
 class ButtonWrite : public ButtonSquare
 {
 public:
@@ -169,6 +189,7 @@ public:
     ButtonWrite(const Point& o, size_t r) : ButtonSquare(o, r) {}
 };
 
+//! \brief button will draw symbol 'R' in square with tag read
 class ButtonRead : public ButtonSquare
 {
 public:

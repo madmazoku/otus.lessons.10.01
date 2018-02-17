@@ -13,6 +13,20 @@
 
 #include <memory>
 
+/*! \file
+    \brief vektor application entry function
+
+    Shortcuts:
+    -    Add PolyLine: 'P'
+        -    Add and move new point: Left Mouse Button down not in existent point
+        -    Select and move existent point: Left Mouse Button down in existent point
+        -    Finish and discard PolyLine: Escape
+        -     Finish and store PolyLine: Return
+    -    Store scene to stdout: 'W'
+    -    Replace scene from stdin: 'R'
+
+*/
+
 int main(int argc, char** argv)
 {
     auto console = spdlog::stdout_logger_mt("console");
@@ -61,6 +75,13 @@ int main(int argc, char** argv)
     VektorState vektor_state(rect.size());
     vektor_state._event_handlers[EventHandlerType::main] = new MainEventHandler(vektor_state);
     vektor_state._event_handlers[EventHandlerType::poly_line] = new PolyLineEventHandler(vektor_state);
+    vektor_state._buttons.push_back(new ButtonLine(Point(30, 30), 25));
+    vektor_state._buttons.push_back(new ButtonPolyLine(Point(90, 30), 25));
+    vektor_state._buttons.push_back(new ButtonRect(Point(150, 30), 25));
+    vektor_state._buttons.push_back(new ButtonCircle(Point(210, 30), 25));
+    vektor_state._buttons.push_back(new ButtonWrite(Point(270, 30), 25));
+    vektor_state._buttons.push_back(new ButtonRead(Point(330, 30), 25));
+
     IEventHandler* evh = vektor_state._event_handlers[EventHandlerType::main];
 
     auto start = std::chrono::system_clock::now();
