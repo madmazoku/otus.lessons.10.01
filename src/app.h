@@ -4,9 +4,10 @@
 #include "shape.h"
 #include "event.h"
 
-class IEventHandler {
+class ILastError {
 public:
-    virtual IEventHandler* process(IEvent*) = 0;
+    virtual uint64_t code() = 0;
+    virtual std::string message() = 0;
 };
 
 class IWindow {
@@ -18,10 +19,10 @@ public:
     virtual bool update() = 0;
 };
 
-class ILastError {
+class IEventLoop {
 public:
-    virtual uint64_t code() = 0;
-    virtual std::string message() = 0;
+    virtual bool wait_event() = 0;
+    virtual IEventHandler* process_events(IEventHandler*) = 0;
 };
 
 class IApp {
@@ -30,8 +31,9 @@ public:
     virtual bool init() = 0;
     virtual void done() = 0;
 
-    virtual Rect max_window_size() = 0;
+    virtual Rect max_window_rect() = 0;
 
+    virtual ILastError* last_error() = 0;
     virtual IWindow* window() = 0;
-    virtual bool process_events(IEventHandler*) = 0;
+    virtual IEventLoop* event_loop() = 0;
 };

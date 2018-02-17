@@ -51,7 +51,7 @@ set_target_properties(vektor vektor_test PROPERTIES
 )
 
 target_link_libraries(vektor
-    ${SDL2_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT} ${Boost_PROGRAM_OPTIONS_LIBRARY}
+    ${SDL2_LIBRARIES} SDL2_gfx ${CMAKE_THREAD_LIBS_INIT} ${Boost_PROGRAM_OPTIONS_LIBRARY}
 )
 
 target_link_libraries(vektor_test

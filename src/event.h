@@ -6,7 +6,7 @@ enum class EventType {
     unknown,
     key,
     mouse_move,
-    mouse_down,
+    mouse_button,
     quit
 };
 
@@ -15,6 +15,13 @@ public:
     virtual EventType type() = 0; 
 };
 using Events = std::vector<IEvent*>;
+
+class IEventHandler {
+public:
+    virtual IEventHandler* process(IEvent*) = 0;
+    virtual void enter() = 0;
+    virtual void leave() = 0;
+};
 
 // specific events
 
@@ -41,12 +48,12 @@ public:
 
 class EventMouseButton : public IEvent {
 public:
-    virtual EventType type() final { return EventType::mouse_down; } 
+    virtual EventType type() final { return EventType::mouse_button; } 
 
     enum class MouseButton {
         unknown,
-        LeftButton,
-        RightButton,
+        Left,
+        Right,
     };
 
     Point _cursor;

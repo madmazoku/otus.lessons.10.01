@@ -12,8 +12,109 @@
 #include <ctime>
 #include <boost/lexical_cast.hpp>
 
+#include "sdl2_app.h"
+#include "vektor.h"
+
+#include <memory>
+
 int main(int argc, char** argv)
 {
+    auto console = spdlog::stdout_logger_mt("console");
+    console->info("Wellcome!");
+
+    SDL2App::App app;
+    if(!app.init()) {
+        console->error("App init Error: {0} {1}", app.last_error()->code(), app.last_error()->message());
+        app.done();
+        return 1;
+    }
+
+    Rect rect = app.max_window_rect();
+    Point size = rect.size();
+
+    if(size._x == 0)
+        size._x = 128;
+    if(size._y == 0)
+        size._y = 128;
+
+    size._x >>= 2;
+    size._y >>= 2;
+    rect._lt._x += size._x;
+    rect._lt._y += size._y;
+    rect._rb._x -= size._x;
+    rect._rb._y -= size._y;
+
+    IWindow* window = app.window();
+    if(!window->init(rect)) {
+        console->error("Window init Error: {0} {1}", app.last_error()->code(), app.last_error()->message());
+        window->done();
+        delete window;
+        app.done();
+        return 1;
+    }
+
+    VektorState vektor_state(rect.size());
+    vektor_state._event_handlers[EventHandlerType::main] = new MainEventHandler(vektor_state);
+    vektor_state._event_handlers[EventHandlerType::poly_line] = new PolyLineEventHandler(vektor_state);
+    IEventHandler* evh = vektor_state._event_handlers[EventHandlerType::main];
+
+    auto start = std::chrono::system_clock::now();
+    size_t count = 0;
+    auto last = start;
+    size_t last_count = count;
+    bool run = true;
+
+    while(true) {
+        auto end = std::chrono::system_clock::now();
+        std::chrono::duration<double> full_elapsed = end - start;
+        std::chrono::duration<double> last_elapsed = end - last;
+
+        if (!run || last_elapsed.count() >= 1) {
+            int frames = count - last_count;
+            double fps = ((double)frames) / last_elapsed.count();
+
+            console->info("[{0} / {1}] fps: {2}", full_elapsed.count(), count, fps);
+
+            last = end;
+            last_count = count;
+        }
+        ++count;
+
+        evh = app.event_loop()->process_events(evh);
+        if(evh == nullptr)
+            break;
+        if(vektor_state.render(window)) {
+            console->error("Window render Error: {0} {1}", app.last_error()->code(), app.last_error()->message());
+            window->done();
+            delete window;
+            app.done();
+            return 1;
+        }
+        if(!window->update()) {
+            console->error("Window update Error: {0} {1}", app.last_error()->code(), app.last_error()->message());
+            window->done();
+            delete window;
+            app.done();
+            return 1;
+        }
+        if(!app.event_loop()->wait_event()) {
+            console->error("Event loop wait Error: {0} {1}", app.last_error()->code(), app.last_error()->message());
+            window->done();
+            delete window;
+            app.done();
+            return 1;
+        }
+    }
+
+    window->done();
+    delete window;
+
+    app.done();
+
+    console->info("Goodby!");
+
+    return 0;
+/*    
     auto console = spdlog::stdout_logger_mt("console");
     console->info("Wellcome!");
 
@@ -109,4 +210,5 @@ int main(int argc, char** argv)
     console->info("Goodby!");
 
     return 0;
+*/
 }

@@ -36,7 +36,7 @@ std::ostream& operator<<(std::ostream& out, const ShapeLine& shape) {
 
 std::ostream& operator<<(std::ostream& out, const ShapePolyLine& shape) {
     out << shape._state << std::endl;
-    out << shape._pts << std::endl;
+    out << shape._pts << ' ' << shape._closed << std::endl;
     return out;
 }
 
@@ -122,7 +122,7 @@ std::istream& operator>>(std::istream& in, ShapeLine& shape) {
 
 std::istream& operator>>(std::istream& in, ShapePolyLine& shape) {
     in >> shape._state;
-    in >> shape._pts;
+    in >> shape._pts >> shape._closed;
     return in;
 }
 

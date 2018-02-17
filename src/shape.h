@@ -54,8 +54,10 @@ public:
     ShapeType type() final { return ShapeType::poly_line; }
 
     Points _pts;
+    bool _closed;
+
     ShapePolyLine() : Shape() {}
-    ShapePolyLine(const ShapeState& state, const Points& pts) : Shape(state), _pts(pts) {}
+    ShapePolyLine(const ShapeState& state, const Points& pts, bool closed) : Shape(state), _pts(pts), _closed(closed) {}
 };
 
 class ShapeRect : public Shape {
@@ -75,5 +77,5 @@ public:
     size_t _r;
 
     ShapeCircle() : Shape(), _o(0, 0), _r(0) {}
-    ShapeCircle(const ShapeState& state, const Point o) : Shape(state), _o(0, 0), _r(0) {}
+    ShapeCircle(const ShapeState& state, const Point& o, int32_t r) : Shape(state), _o(o), _r(r) {}
 };
