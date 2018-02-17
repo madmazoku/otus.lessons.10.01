@@ -22,7 +22,8 @@ struct ShapeState {
     ShapeState(const ShapeState& state): _fg(state._fg), _bg(state._bg), _tag(state._tag) {}
 };
 
-class IShape {
+class IShape
+{
 public:
     virtual ShapeType type() = 0;
 };
@@ -30,7 +31,8 @@ using Shapes = std::vector<IShape*>;
 
 // specific shapes
 
-class Shape : public IShape {
+class Shape : public IShape
+{
 public:
     ShapeState _state;
 
@@ -38,7 +40,8 @@ public:
     Shape(const ShapeState& state) : _state(state) {}
 };
 
-class ShapeLine : public Shape {
+class ShapeLine : public Shape
+{
 public:
     ShapeType type() final { return ShapeType::line; }
 
@@ -49,7 +52,8 @@ public:
     ShapeLine(const ShapeState& state, const Point& p1, const Point& p2) : Shape(state), _p1(p1), _p2(p2) {}
 };
 
-class ShapePolyLine : public Shape {
+class ShapePolyLine : public Shape
+{
 public:
     ShapeType type() final { return ShapeType::poly_line; }
 
@@ -60,7 +64,8 @@ public:
     ShapePolyLine(const ShapeState& state, const Points& pts, bool closed) : Shape(state), _pts(pts), _closed(closed) {}
 };
 
-class ShapeRect : public Shape {
+class ShapeRect : public Shape
+{
 public:
     ShapeType type() final { return ShapeType::rect; }
 
@@ -69,7 +74,8 @@ public:
     ShapeRect(const ShapeState& state, const Rect& r) : Shape(state), _r(r) {}
 };
 
-class ShapeCircle : public Shape {
+class ShapeCircle : public Shape
+{
 public:
     ShapeType type() final { return ShapeType::circle; }
 

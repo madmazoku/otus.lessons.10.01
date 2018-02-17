@@ -4,13 +4,15 @@
 #include "shape.h"
 #include "event.h"
 
-class ILastError {
+class ILastError
+{
 public:
     virtual uint64_t code() = 0;
     virtual std::string message() = 0;
 };
 
-class IWindow {
+class IWindow
+{
 public:
     virtual bool init(const Rect&) = 0;
     virtual void done() = 0;
@@ -19,13 +21,15 @@ public:
     virtual bool update() = 0;
 };
 
-class IEventLoop {
+class IEventLoop
+{
 public:
     virtual bool wait_event() = 0;
     virtual IEventHandler* process_events(IEventHandler*) = 0;
 };
 
-class IApp {
+class IApp
+{
 public:
 
     virtual bool init() = 0;

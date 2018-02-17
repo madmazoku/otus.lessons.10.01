@@ -3,7 +3,8 @@
 #include "shape.h"
 #include "shape_io.h"
 
-class IButton {
+class IButton
+{
 public:
     virtual std::string tag() = 0;
     virtual std::string tag_bg() = 0;
@@ -12,20 +13,22 @@ public:
 };
 using Buttons = std::vector<IButton*>;
 
-class ButtonSquare : public IButton {
+class ButtonSquare : public IButton
+{
 public:
 
     virtual bool point_in(const Point& p) final {
         return std::abs(p._x - _o._x) < _r && std::abs(p._y - _o._y) < _r;
     }
-    virtual void add_to_shapes(Shapes& shapes) override {
+    virtual void add_to_shapes(Shapes& shapes) override
+    {
         shapes.push_back(
             new ShapeRect(
                 ShapeState(
-                    Color(0xff, 0xff, 0xff, 0xff), 
-                    Color(0x7f, 0x7f, 0x7f, 0xff), 
+                    Color(0xff, 0xff, 0xff, 0xff),
+                    Color(0x7f, 0x7f, 0x7f, 0xff),
                     tag_bg()
-                ), 
+                ),
                 Rect(_o._x - _r, _o._y - _r, _o._x + _r, _o._y + _r)
             )
         );
@@ -40,7 +43,8 @@ public:
     ButtonSquare(const Point& o, size_t r) : _o(o), _r(r) {}
 };
 
-class ButtonLine : public ButtonSquare {
+class ButtonLine : public ButtonSquare
+{
 public:
     virtual std::string tag() final { return "line"; }
     virtual void add_to_shapes(Shapes& shapes) final {
@@ -49,10 +53,10 @@ public:
         shapes.push_back(
             new ShapeLine(
                 ShapeState(
-                    Color(0xff, 0xff, 0xff, 0xff), 
-                    Color(0x00, 0x00, 0x00, 0x00), 
+                    Color(0xff, 0xff, 0xff, 0xff),
+                    Color(0x00, 0x00, 0x00, 0x00),
                     tag()
-                ), 
+                ),
                 Point(_o._x - _r + 5, _o._y - _r + 5), Point(_o._x + _r - 5, _o._y + _r - 5)
             )
         );
@@ -62,7 +66,8 @@ public:
     ButtonLine(const Point& o, size_t r) : ButtonSquare(o, r) {}
 };
 
-class ButtonPolyLine : public ButtonSquare {
+class ButtonPolyLine : public ButtonSquare
+{
 public:
     virtual std::string tag() final { return "poly_line"; }
     virtual void add_to_shapes(Shapes& shapes) final {
@@ -71,16 +76,16 @@ public:
         shapes.push_back(
             new ShapePolyLine(
                 ShapeState(
-                    Color(0xff, 0xff, 0xff, 0xff), 
-                    Color(0x00, 0x00, 0x00, 0x00), 
+                    Color(0xff, 0xff, 0xff, 0xff),
+                    Color(0x00, 0x00, 0x00, 0x00),
                     tag()
-                ), 
-                Points{
-                    Point(_o._x - _r + 5, _o._y - _r + 5), 
-                    Point(_o._x + _r - 5, _o._y + _r - 5),
-                    Point(_o._x - _r + 5, _o._y + _r - 5),
-                    Point(_o._x + _r - 5, _o._y - _r + 5),
-                }, false
+                ),
+        Points{
+            Point(_o._x - _r + 5, _o._y - _r + 5),
+            Point(_o._x + _r - 5, _o._y + _r - 5),
+            Point(_o._x - _r + 5, _o._y + _r - 5),
+            Point(_o._x + _r - 5, _o._y - _r + 5),
+        }, false
             )
         );
     }
@@ -89,7 +94,8 @@ public:
     ButtonPolyLine(const Point& o, size_t r) : ButtonSquare(o, r) {}
 };
 
-class ButtonRect : public ButtonSquare {
+class ButtonRect : public ButtonSquare
+{
 public:
     virtual std::string tag() final { return "rect"; }
     virtual void add_to_shapes(Shapes& shapes) final {
@@ -98,10 +104,10 @@ public:
         shapes.push_back(
             new ShapeRect(
                 ShapeState(
-                    Color(0xff, 0xff, 0xff, 0xff), 
-                    Color(0x00, 0x00, 0x00, 0x00), 
+                    Color(0xff, 0xff, 0xff, 0xff),
+                    Color(0x00, 0x00, 0x00, 0x00),
                     tag()
-                ), 
+                ),
                 Rect(Point(_o._x - _r + 5, _o._y - _r + 5), Point(_o._x + _r - 5, _o._y + _r - 5))
             )
         );
@@ -111,7 +117,8 @@ public:
     ButtonRect(const Point& o, size_t r) : ButtonSquare(o, r) {}
 };
 
-class ButtonCircle : public ButtonSquare {
+class ButtonCircle : public ButtonSquare
+{
 public:
     virtual std::string tag() final { return "circle"; }
     virtual void add_to_shapes(Shapes& shapes) final {
@@ -120,10 +127,10 @@ public:
         shapes.push_back(
             new ShapeCircle(
                 ShapeState(
-                    Color(0xff, 0xff, 0xff, 0xff), 
-                    Color(0x00, 0x00, 0x00, 0x00), 
+                    Color(0xff, 0xff, 0xff, 0xff),
+                    Color(0x00, 0x00, 0x00, 0x00),
                     tag()
-                ), 
+                ),
                 _o, _r - 5
             )
         );
@@ -133,7 +140,8 @@ public:
     ButtonCircle(const Point& o, size_t r) : ButtonSquare(o, r) {}
 };
 
-class ButtonWrite : public ButtonSquare {
+class ButtonWrite : public ButtonSquare
+{
 public:
     virtual std::string tag() final { return "write"; }
     virtual void add_to_shapes(Shapes& shapes) final {
@@ -142,17 +150,17 @@ public:
         shapes.push_back(
             new ShapePolyLine(
                 ShapeState(
-                    Color(0xff, 0xff, 0xff, 0xff), 
-                    Color(0x00, 0x00, 0x00, 0x00), 
+                    Color(0xff, 0xff, 0xff, 0xff),
+                    Color(0x00, 0x00, 0x00, 0x00),
                     tag()
-                ), 
-                Points{
-                    Point(_o._x - _r + 5, _o._y - _r + 5), 
-                    Point(_o._x - _r + 5, _o._y + _r - 5), 
-                    Point(_o._x, _o._y), 
-                    Point(_o._x + _r - 5, _o._y + _r - 5), 
-                    Point(_o._x + _r - 5, _o._y - _r + 5), 
-                }, false
+                ),
+        Points{
+            Point(_o._x - _r + 5, _o._y - _r + 5),
+            Point(_o._x - _r + 5, _o._y + _r - 5),
+            Point(_o._x, _o._y),
+            Point(_o._x + _r - 5, _o._y + _r - 5),
+            Point(_o._x + _r - 5, _o._y - _r + 5),
+        }, false
             )
         );
     }
@@ -161,7 +169,8 @@ public:
     ButtonWrite(const Point& o, size_t r) : ButtonSquare(o, r) {}
 };
 
-class ButtonRead : public ButtonSquare {
+class ButtonRead : public ButtonSquare
+{
 public:
     virtual std::string tag() final { return "read"; }
     virtual void add_to_shapes(Shapes& shapes) final {
@@ -170,18 +179,18 @@ public:
         shapes.push_back(
             new ShapePolyLine(
                 ShapeState(
-                    Color(0xff, 0xff, 0xff, 0xff), 
-                    Color(0x00, 0x00, 0x00, 0x00), 
+                    Color(0xff, 0xff, 0xff, 0xff),
+                    Color(0x00, 0x00, 0x00, 0x00),
                     tag()
-                ), 
-                Points{
-                    Point(_o._x - _r + 5, _o._y + _r - 5), 
-                    Point(_o._x - _r + 5, _o._y - _r + 5), 
-                    Point(_o._x + _r - 5, _o._y - _r + 5), 
-                    Point(_o._x + _r - 5, _o._y), 
-                    Point(_o._x - _r + 5, _o._y), 
-                    Point(_o._x + _r - 5, _o._y + _r - 5), 
-                }, false
+                ),
+        Points{
+            Point(_o._x - _r + 5, _o._y + _r - 5),
+            Point(_o._x - _r + 5, _o._y - _r + 5),
+            Point(_o._x + _r - 5, _o._y - _r + 5),
+            Point(_o._x + _r - 5, _o._y),
+            Point(_o._x - _r + 5, _o._y),
+            Point(_o._x + _r - 5, _o._y + _r - 5),
+        }, false
             )
         );
     }

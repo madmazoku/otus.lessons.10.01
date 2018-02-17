@@ -10,13 +10,15 @@ enum class EventType {
     quit
 };
 
-class IEvent {
+class IEvent
+{
 public:
-    virtual EventType type() = 0; 
+    virtual EventType type() = 0;
 };
 using Events = std::vector<IEvent*>;
 
-class IEventHandler {
+class IEventHandler
+{
 public:
     virtual IEventHandler* process(IEvent*) = 0;
     virtual void enter() = 0;
@@ -25,9 +27,10 @@ public:
 
 // specific events
 
-class EventKey : public IEvent {
+class EventKey : public IEvent
+{
 public:
-    virtual EventType type() final { return EventType::key; } 
+    virtual EventType type() final { return EventType::key; }
 
     uint16_t _vk;
     bool _up;
@@ -36,9 +39,10 @@ public:
     EventKey(uint16_t vk, bool up) : _vk(vk), _up(up) {}
 };
 
-class EventMouseMove : public IEvent {
+class EventMouseMove : public IEvent
+{
 public:
-    virtual EventType type() final { return EventType::mouse_move; } 
+    virtual EventType type() final { return EventType::mouse_move; }
 
     Point _cursor;
 
@@ -46,9 +50,10 @@ public:
     EventMouseMove(const Point& cursor) : _cursor(cursor) {}
 };
 
-class EventMouseButton : public IEvent {
+class EventMouseButton : public IEvent
+{
 public:
-    virtual EventType type() final { return EventType::mouse_button; } 
+    virtual EventType type() final { return EventType::mouse_button; }
 
     enum class MouseButton {
         unknown,
@@ -64,8 +69,9 @@ public:
     EventMouseButton(const Point& cursor, MouseButton mb, bool up) : _cursor(cursor), _mb(mb), _up(up) {}
 };
 
-class EventQuit : public IEvent {
+class EventQuit : public IEvent
+{
 public:
-    virtual EventType type() final { return EventType::quit; } 
+    virtual EventType type() final { return EventType::quit; }
 };
 
