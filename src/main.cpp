@@ -32,10 +32,10 @@ int main(int argc, char** argv)
     Rect rect = app.max_window_rect();
     Point size = rect.size();
 
-    if(size._x == 0)
-        size._x = 128;
-    if(size._y == 0)
-        size._y = 128;
+    if(size._x < 512)
+        size._x = 512;
+    if(size._y < 256)
+        size._y = 256;
 
     size._x >>= 2;
     size._y >>= 2;

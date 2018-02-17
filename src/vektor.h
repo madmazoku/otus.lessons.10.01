@@ -30,8 +30,12 @@ struct VektorState {
     }
 
     VektorState(const Point& size) : _size(size), _shape_state(Color(0xff, 0xff, 0xff, 0xff), Color(0x00, 0x00, 0x00, 0x00), "") {
-        _buttons.push_back(new LineButton(Point(30, 30), 25));
-        _buttons.push_back(new PolyLineButton(Point(90, 30), 25));
+        _buttons.push_back(new ButtonLine(Point(30, 30), 25));
+        _buttons.push_back(new ButtonPolyLine(Point(90, 30), 25));
+        _buttons.push_back(new ButtonRect(Point(150, 30), 25));
+        _buttons.push_back(new ButtonCircle(Point(210, 30), 25));
+        _buttons.push_back(new ButtonWrite(Point(270, 30), 25));
+        _buttons.push_back(new ButtonRead(Point(330, 30), 25));
 
         _interface_shapes.push_back(
             new ShapeRect(
@@ -43,93 +47,8 @@ struct VektorState {
                 Rect(0, 0, _size._x, _size._y)
             )
         );
-        // for(auto b : _buttons)
-        //     b->add_to_shapes(_interface_shapes);
-        _interface_shapes.push_back(
-            new ShapeRect(
-                ShapeState(
-                    Color(0xff, 0xff, 0xff, 0xff), 
-                    Color(0x7f, 0x7f, 0x7f, 0xff), 
-                    "line_bg"
-                ), 
-                Rect(5, 5, 55, 55)
-            )
-        );
-        _interface_shapes.push_back(
-            new ShapeLine(
-                ShapeState(
-                    Color(0xff, 0xff, 0xff, 0xff), 
-                    Color(0x00, 0x00, 0x00, 0x00), 
-                    "line"
-                ), 
-                Point(10, 10), Point(50, 50)
-            )
-        );
-        _interface_shapes.push_back(
-            new ShapeRect(
-                ShapeState(
-                    Color(0xff, 0xff, 0xff, 0xff), 
-                    Color(0x7f, 0x7f, 0x7f, 0xff), 
-                    "poly_line_bg"
-                ), 
-                Rect(60, 5, 110, 55)
-            )
-        );
-        _interface_shapes.push_back(
-            new ShapePolyLine(
-                ShapeState(
-                    Color(0xff, 0xff, 0xff, 0xff), 
-                    Color(0x00, 0x00, 0x00, 0x00), 
-                    "poly_line"
-                ), 
-                Points{
-                    Point(65, 10), 
-                    Point(105, 50),
-                    Point(105, 10),
-                    Point(65, 50),
-                }, false
-            )
-        );
-        _interface_shapes.push_back(
-            new ShapeRect(
-                ShapeState(
-                    Color(0xff, 0xff, 0xff, 0xff), 
-                    Color(0x7f, 0x7f, 0x7f, 0xff), 
-                    "rect_bg"
-                ), 
-                Rect(115, 5, 165, 55)
-            )
-        );
-        _interface_shapes.push_back(
-            new ShapeRect(
-                ShapeState(
-                    Color(0xff, 0xff, 0xff, 0xff), 
-                    Color(0x00, 0x00, 0x00, 0x00), 
-                    "rect"
-                ), 
-                Rect(120, 10, 160, 50)
-            )
-        );
-        _interface_shapes.push_back(
-            new ShapeRect(
-                ShapeState(
-                    Color(0xff, 0xff, 0xff, 0xff), 
-                    Color(0x7f, 0x7f, 0x7f, 0xff), 
-                    "circle_bg"
-                ), 
-                Rect(170, 5, 220, 55)
-            )
-        );
-        _interface_shapes.push_back(
-            new ShapeCircle(
-                ShapeState(
-                    Color(0xff, 0xff, 0xff, 0xff), 
-                    Color(0x00, 0x00, 0x00, 0x00), 
-                    "circle"
-                ), 
-                Point(195, 30), 20
-            )
-        );
+        for(auto b : _buttons)
+            b->add_to_shapes(_interface_shapes);
     }
     ~VektorState() {
         for(auto b : _buttons)
@@ -167,8 +86,22 @@ public:
             {
                 EventMouseButton* evMB = dynamic_cast<EventMouseButton*>(ev);
 
-                if(std::abs(evMB->_cursor._x - 85) < 25 && std::abs(evMB->_cursor._y - 30) < 25)
-                    return _vektor_state._event_handlers[EventHandlerType::poly_line];
+                if(evMB->_cursor._y > 60)
+                    return this;
+
+                if(!evMB->_up)
+                    return this;
+
+                for(auto b : _vektor_state._buttons)
+                    if(b->point_in(evMB->_cursor))
+                        if(b->tag() == "poly_line")
+                            return _vektor_state._event_handlers[EventHandlerType::poly_line];
+                        else if(b->tag() == "write")
+                            std::cout << _vektor_state._scene_shapes;
+                        else if(b->tag() == "read") {
+                            _vektor_state._scene_shapes.clear();
+                            std::cin >> _vektor_state._scene_shapes;
+                        }
 
                 return this;
             }
@@ -176,11 +109,16 @@ public:
             {
                 EventMouseMove* evMM = dynamic_cast<EventMouseMove*>(ev);
 
-                Shape* poly_bg = _vektor_state.by_tag(_vektor_state._interface_shapes, "poly_line_bg");
-                if(std::abs(evMM->_cursor._x - 85) < 25 && std::abs(evMM->_cursor._y - 30) < 25)
-                    poly_bg->_state._bg._g = 0xff;
-                else
-                    poly_bg->_state._bg._g = 0x7f;
+                for(auto b : _vektor_state._buttons) {
+                    if(b->tag() == "poly_line" || b->tag() == "read" || b->tag() == "write") {
+                        Shape* bg = _vektor_state.by_tag(_vektor_state._interface_shapes, b->tag_bg());
+                        if(bg)
+                            if(b->point_in(evMM->_cursor))
+                                bg->_state._bg._g = 0xff;
+                            else
+                                bg->_state._bg._g = 0x7f;
+                    }
+                }
 
                 return this;
             }
