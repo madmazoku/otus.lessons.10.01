@@ -1,0 +1,6 @@
+<map id="IEvent" name="IEvent">
+<area shape="rect" id="node2" href="$classEventKey.html" title="Event descriptor for events related to key pressing. " alt="" coords="5,80,84,107"/>
+<area shape="rect" id="node3" href="$classEventMouseButton.html" title="Event descriptor for events related to pressing mouse button. " alt="" coords="109,80,242,107"/>
+<area shape="rect" id="node4" href="$classEventMouseMove.html" title="Event descriptor for events related to mouse motion. " alt="" coords="267,80,393,107"/>
+<area shape="rect" id="node5" href="$classEventQuit.html" title="Event descriptor for event related to finishing application. " alt="" coords="418,80,498,107"/>
+</map>

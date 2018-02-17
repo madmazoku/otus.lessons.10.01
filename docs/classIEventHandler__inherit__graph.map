@@ -1,0 +1,4 @@
+<map id="IEventHandler" name="IEventHandler">
+<area shape="rect" id="node2" href="$classMainEventHandler.html" title="Main EventHandler, it is used from the start and between other modes. " alt="" coords="5,80,135,107"/>
+<area shape="rect" id="node3" href="$classPolyLineEventHandler.html" title="PolyLine EventHandler, it is used when poly_line is edited. " alt="" coords="159,80,309,107"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classIButton.html" title="Button descriptor. " alt="" coords="5,132,69,159"/>
+<area shape="rect" id="node2" href="$classButtonSquare.html" title="square button which have solid background and edge and placed around origin with radius ..." alt="" coords="117,132,219,159"/>
+<area shape="rect" id="node3" href="$classButtonCircle.html" title="button will draw circle in square with tag circle " alt="" coords="275,5,369,32"/>
+<area shape="rect" id="node4" href="$classButtonLine.html" title="button will draw line in square with tag line " alt="" coords="280,56,364,83"/>
+<area shape="rect" id="node5" href="$classButtonPolyLine.html" title="button will draw polyline in square with tag polyline " alt="" coords="267,107,377,133"/>
+<area shape="rect" id="node6" href="$classButtonRead.html" title="button will draw symbol &#39;R&#39; in square with tag read " alt="" coords="277,157,367,184"/>
+<area shape="rect" id="node7" href="$classButtonRect.html" title="button will draw rectangle in square with tag rect " alt="" coords="278,208,366,235"/>
+<area shape="rect" id="node8" href="$classButtonWrite.html" title="button will draw symbol &#39;W&#39; in square with tag write " alt="" coords="277,259,367,285"/>
+</map>

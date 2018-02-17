@@ -1,0 +1,10 @@
+<map id="src/geometry.h" name="src/geometry.h">
+<area shape="rect" id="node2" href="$app_8h.html" title="Interfaces to system libraries required for GUI application. " alt="" coords="353,155,429,181"/>
+<area shape="rect" id="node5" href="$shape_8h.html" title="Declaration for Shape descriptor and some definitions. " alt="" coords="156,80,247,107"/>
+<area shape="rect" id="node9" href="$event_8h.html" title="Declaration for Event descriptor and some definitions. " alt="" coords="271,80,358,107"/>
+<area shape="rect" id="node3" href="$sdl2__app_8h.html" title="Definitions for app.h for the case of SDL2 library. " alt="" coords="335,229,441,256"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="vektor application entry function " alt="" coords="277,304,374,331"/>
+<area shape="rect" id="node6" href="$button_8h.html" title="Declaration of button class to be used as GUI buttons in vektor application. " alt="" coords="5,155,96,181"/>
+<area shape="rect" id="node7" href="$vektor_8h.html" title="Declarations for vektor application state and event handlers. " alt="" coords="219,229,309,256"/>
+<area shape="rect" id="node8" href="$shape__io_8h.html" title="overrides for geometry and shapes to be used with in/out streams " alt="" coords="120,155,227,181"/>
+</map>

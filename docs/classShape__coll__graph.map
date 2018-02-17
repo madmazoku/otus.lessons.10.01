@@ -1,0 +1,5 @@
+<map id="Shape" name="Shape">
+<area shape="rect" id="node2" href="$classIShape.html" title="base shape descriptor " alt="" coords="5,109,68,136"/>
+<area shape="rect" id="node3" href="$structShapeState.html" title="shape info, line color, fill color and tag " alt="" coords="93,109,183,136"/>
+<area shape="rect" id="node4" href="$structColor.html" title="Color defined by Red, Green, Blue levels, plus transparency alpha. " alt="" coords="111,5,165,32"/>
+</map>

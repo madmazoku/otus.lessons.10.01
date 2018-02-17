@@ -1,0 +1,8 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classIShape.html" title="base shape descriptor " alt="" coords="5,81,68,108"/>
+<area shape="rect" id="node2" href="$classShape.html" title="shape with state " alt="" coords="116,81,175,108"/>
+<area shape="rect" id="node3" href="$classShapeCircle.html" title="shape descriptor which represent circle with origin point and radius " alt="" coords="231,5,324,32"/>
+<area shape="rect" id="node4" href="$classShapeLine.html" title="shape descriptor which represent line connecting two points " alt="" coords="236,56,319,83"/>
+<area shape="rect" id="node5" href="$classShapePolyLine.html" title="shape descriptor which represent polyline connecting several point, may be closed and filled ..." alt="" coords="223,107,332,133"/>
+<area shape="rect" id="node6" href="$classShapeRect.html" title="shape descriptor which represent rect " alt="" coords="234,157,321,184"/>
+</map>

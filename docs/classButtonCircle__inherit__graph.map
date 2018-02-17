@@ -1,0 +1,4 @@
+<map id="ButtonCircle" name="ButtonCircle">
+<area shape="rect" id="node2" href="$classButtonSquare.html" title="square button which have solid background and edge and placed around origin with radius ..." alt="" coords="5,80,107,107"/>
+<area shape="rect" id="node3" href="$classIButton.html" title="Button descriptor. " alt="" coords="24,5,88,32"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="PolyLineEventHandler" name="PolyLineEventHandler">
+<area shape="rect" id="node2" href="$classIEventHandler.html" title="Event handler. " alt="" coords="5,275,111,301"/>
+<area shape="rect" id="node3" href="$structVektorState.html" title="state of vektor application " alt="" coords="247,199,338,225"/>
+<area shape="rect" id="node4" href="$structShapeState.html" title="shape info, line color, fill color and tag " alt="" coords="225,109,315,136"/>
+<area shape="rect" id="node8" href="$classShape.html" title="shape with state " alt="" coords="161,199,219,225"/>
+<area shape="rect" id="node5" href="$structColor.html" title="Color defined by Red, Green, Blue levels, plus transparency alpha. " alt="" coords="243,5,297,32"/>
+<area shape="rect" id="node6" href="$structPoint.html" title="Point in 2d space. " alt="" coords="365,109,417,136"/>
+<area shape="rect" id="node7" href="$classShapePolyLine.html" title="shape descriptor which represent polyline connecting several point, may be closed and filled ..." alt="" coords="135,275,245,301"/>
+<area shape="rect" id="node9" href="$classIShape.html" title="base shape descriptor " alt="" coords="131,109,193,136"/>
+</map>

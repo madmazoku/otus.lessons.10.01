@@ -1,0 +1,7 @@
+<map id="MainEventHandler" name="MainEventHandler">
+<area shape="rect" id="node2" href="$classIEventHandler.html" title="Event handler. " alt="" coords="5,199,111,225"/>
+<area shape="rect" id="node3" href="$structVektorState.html" title="state of vektor application " alt="" coords="135,199,226,225"/>
+<area shape="rect" id="node4" href="$structShapeState.html" title="shape info, line color, fill color and tag " alt="" coords="78,109,169,136"/>
+<area shape="rect" id="node5" href="$structColor.html" title="Color defined by Red, Green, Blue levels, plus transparency alpha. " alt="" coords="97,5,150,32"/>
+<area shape="rect" id="node6" href="$structPoint.html" title="Point in 2d space. " alt="" coords="211,109,263,136"/>
+</map>

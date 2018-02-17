@@ -1,0 +1,6 @@
+<map id="src/event.h" name="src/event.h">
+<area shape="rect" id="node2" href="$app_8h.html" title="Interfaces to system libraries required for GUI application. " alt="" coords="33,80,109,107"/>
+<area shape="rect" id="node5" href="$vektor_8h.html" title="Declarations for vektor application state and event handlers. " alt="" coords="136,155,227,181"/>
+<area shape="rect" id="node3" href="$sdl2__app_8h.html" title="Definitions for app.h for the case of SDL2 library. " alt="" coords="5,155,112,181"/>
+<area shape="rect" id="node4" href="$main_8cpp.html" title="vektor application entry function " alt="" coords="71,229,169,256"/>
+</map>
