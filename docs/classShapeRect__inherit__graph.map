@@ -1,4 +1,4 @@
 <map id="ShapeRect" name="ShapeRect">
-<area shape="rect" id="node2" href="$classShape.html" title="shape with state " alt="" coords="19,80,78,107"/>
-<area shape="rect" id="node3" href="$classIShape.html" title="base shape descriptor " alt="" coords="17,5,80,32"/>
+<area shape="rect" id="node2" href="$classShape.html" title="shape with state " alt="" coords="19,80,76,107"/>
+<area shape="rect" id="node3" href="$classIShape.html" title="base shape descriptor " alt="" coords="17,5,79,32"/>
 </map>

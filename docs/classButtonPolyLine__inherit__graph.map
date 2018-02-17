@@ -1,4 +1,4 @@
 <map id="ButtonPolyLine" name="ButtonPolyLine">
-<area shape="rect" id="node2" href="$classButtonSquare.html" title="square button which have solid background and edge and placed around origin with radius ..." alt="" coords="10,80,111,107"/>
-<area shape="rect" id="node3" href="$classIButton.html" title="Button descriptor. " alt="" coords="29,5,93,32"/>
+<area shape="rect" id="node2" href="$classButtonSquare.html" title="square button which have solid background and edge and placed around origin with radius ..." alt="" coords="9,80,111,107"/>
+<area shape="rect" id="node3" href="$classIButton.html" title="Button descriptor. " alt="" coords="28,5,92,32"/>
 </map>

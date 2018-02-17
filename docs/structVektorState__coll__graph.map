@@ -1,5 +1,5 @@
 <map id="VektorState" name="VektorState">
 <area shape="rect" id="node2" href="$structShapeState.html" title="shape info, line color, fill color and tag " alt="" coords="5,109,96,136"/>
 <area shape="rect" id="node3" href="$structColor.html" title="Color defined by Red, Green, Blue levels, plus transparency alpha. " alt="" coords="24,5,77,32"/>
-<area shape="rect" id="node4" href="$structPoint.html" title="Point in 2d space. " alt="" coords="138,109,190,136"/>
+<area shape="rect" id="node4" href="$structPoint.html" title="Point in 2d space. " alt="" coords="138,109,189,136"/>
 </map>

@@ -1,7 +1,7 @@
 <map id="src/vektor.h" name="src/vektor.h">
-<area shape="rect" id="node2" href="$event_8h.html" title="Declaration for Event descriptor and some definitions. " alt="" coords="5,155,71,181"/>
-<area shape="rect" id="node6" href="$shape_8h.html" title="Declaration for Shape descriptor and some definitions. " alt="" coords="115,155,183,181"/>
-<area shape="rect" id="node7" href="$shape__io_8h.html" title="overrides for geometry and shapes to be used with in/out streams " alt="" coords="117,80,202,107"/>
-<area shape="rect" id="node9" href="$button_8h.html" title="Declaration of button class to be used as GUI buttons in vektor application. " alt="" coords="298,80,367,107"/>
-<area shape="rect" id="node3" href="$geometry_8h.html" title="Utility structures for 2d geometry. " alt="" coords="19,229,105,256"/>
+<area shape="rect" id="node2" href="$event_8h.html" title="Declaration for Event descriptor and some definitions. " alt="" coords="5,155,69,181"/>
+<area shape="rect" id="node6" href="$shape_8h.html" title="Declaration for Shape descriptor and some definitions. " alt="" coords="114,155,181,181"/>
+<area shape="rect" id="node7" href="$shape__io_8h.html" title="overrides for geometry and shapes to be used with in/out streams " alt="" coords="116,80,201,107"/>
+<area shape="rect" id="node9" href="$button_8h.html" title="Declaration of button class to be used as GUI buttons in vektor application. " alt="" coords="297,80,367,107"/>
+<area shape="rect" id="node3" href="$geometry_8h.html" title="Utility structures for 2d geometry. " alt="" coords="18,229,104,256"/>
 </map>

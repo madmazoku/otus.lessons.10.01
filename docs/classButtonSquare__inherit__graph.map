@@ -1,9 +1,9 @@
 <map id="ButtonSquare" name="ButtonSquare">
-<area shape="rect" id="node3" href="$classButtonCircle.html" title="button will draw circle in square with tag circle " alt="" coords="5,155,100,181"/>
-<area shape="rect" id="node4" href="$classButtonLine.html" title="button will draw line in square with tag line " alt="" coords="124,155,208,181"/>
-<area shape="rect" id="node5" href="$classButtonPolyLine.html" title="button will draw polyline in square with tag polyline " alt="" coords="232,155,343,181"/>
-<area shape="rect" id="node6" href="$classButtonRead.html" title="button will draw symbol &#39;R&#39; in square with tag read " alt="" coords="367,155,458,181"/>
-<area shape="rect" id="node7" href="$classButtonRect.html" title="button will draw rectangle in square with tag rect " alt="" coords="482,155,570,181"/>
-<area shape="rect" id="node8" href="$classButtonWrite.html" title="button will draw symbol &#39;W&#39; in square with tag write " alt="" coords="594,155,685,181"/>
-<area shape="rect" id="node2" href="$classIButton.html" title="Button descriptor. " alt="" coords="318,5,382,32"/>
+<area shape="rect" id="node3" href="$classButtonCircle.html" title="button will draw circle in square with tag circle " alt="" coords="5,155,99,181"/>
+<area shape="rect" id="node4" href="$classButtonLine.html" title="button will draw line in square with tag line " alt="" coords="123,155,207,181"/>
+<area shape="rect" id="node5" href="$classButtonPolyLine.html" title="button will draw polyline in square with tag polyline " alt="" coords="231,155,341,181"/>
+<area shape="rect" id="node6" href="$classButtonRead.html" title="button will draw symbol &#39;R&#39; in square with tag read " alt="" coords="367,155,457,181"/>
+<area shape="rect" id="node7" href="$classButtonRect.html" title="button will draw rectangle in square with tag rect " alt="" coords="481,155,569,181"/>
+<area shape="rect" id="node8" href="$classButtonWrite.html" title="button will draw symbol &#39;W&#39; in square with tag write " alt="" coords="593,155,684,181"/>
+<area shape="rect" id="node2" href="$classIButton.html" title="Button descriptor. " alt="" coords="317,5,381,32"/>
 </map>

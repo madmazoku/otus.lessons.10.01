@@ -1,7 +1,7 @@
 <map id="Shape" name="Shape">
 <area shape="rect" id="node3" href="$classShapeCircle.html" title="shape descriptor which represent circle with origin point and radius " alt="" coords="5,155,99,181"/>
-<area shape="rect" id="node4" href="$classShapeLine.html" title="shape descriptor which represent line connecting two points " alt="" coords="123,155,205,181"/>
+<area shape="rect" id="node4" href="$classShapeLine.html" title="shape descriptor which represent line connecting two points " alt="" coords="123,155,204,181"/>
 <area shape="rect" id="node5" href="$classShapePolyLine.html" title="shape descriptor which represent polyline connecting several point, may be closed and filled ..." alt="" coords="229,155,339,181"/>
-<area shape="rect" id="node6" href="$classShapeRect.html" title="shape descriptor which represent rect " alt="" coords="363,155,450,181"/>
+<area shape="rect" id="node6" href="$classShapeRect.html" title="shape descriptor which represent rect " alt="" coords="363,155,449,181"/>
 <area shape="rect" id="node2" href="$classIShape.html" title="base shape descriptor " alt="" coords="193,5,255,32"/>
 </map>

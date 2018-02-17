@@ -1,7 +1,7 @@
 <map id="SDL2App::App" name="SDL2App::App">
-<area shape="rect" id="node2" href="$classIApp.html" title="interface to initialize system library and obtain general data and other interfaces ..." alt="" coords="5,81,55,108"/>
-<area shape="rect" id="node3" href="$classSDL2App_1_1LastError.html" title="SDL2App::LastError" alt="" coords="79,81,218,108"/>
-<area shape="rect" id="node4" href="$classILastError.html" title="interface allow obtain some last error info from library " alt="" coords="109,5,188,32"/>
-<area shape="rect" id="node5" href="$classSDL2App_1_1EventLoop.html" title="SDL2App::EventLoop" alt="" coords="243,81,391,108"/>
-<area shape="rect" id="node6" href="$classIEventLoop.html" title="interface to event processing " alt="" coords="273,5,361,32"/>
+<area shape="rect" id="node2" href="$classIApp.html" title="interface to initialize system library and obtain general data and other interfaces ..." alt="" coords="5,83,53,109"/>
+<area shape="rect" id="node3" href="$classSDL2App_1_1LastError.html" title="SDL2App::LastError" alt="" coords="79,83,217,109"/>
+<area shape="rect" id="node4" href="$classILastError.html" title="interface allow obtain some last error info from library " alt="" coords="109,5,187,32"/>
+<area shape="rect" id="node5" href="$classSDL2App_1_1EventLoop.html" title="SDL2App::EventLoop" alt="" coords="242,83,389,109"/>
+<area shape="rect" id="node6" href="$classIEventLoop.html" title="interface to event processing " alt="" coords="272,5,360,32"/>
 </map>

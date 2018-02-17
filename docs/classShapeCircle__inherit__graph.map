@@ -1,4 +1,4 @@
 <map id="ShapeCircle" name="ShapeCircle">
-<area shape="rect" id="node2" href="$classShape.html" title="shape with state " alt="" coords="23,80,81,107"/>
+<area shape="rect" id="node2" href="$classShape.html" title="shape with state " alt="" coords="23,80,80,107"/>
 <area shape="rect" id="node3" href="$classIShape.html" title="base shape descriptor " alt="" coords="21,5,83,32"/>
 </map>

@@ -1,4 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classIApp.html" title="interface to initialize system library and obtain general data and other interfaces ..." alt="" coords="5,5,55,32"/>
-<area shape="rect" id="node2" href="$classSDL2App_1_1App.html" title="SDL2App::App" alt="" coords="103,5,212,32"/>
+<area shape="rect" id="node1" href="$classIApp.html" title="interface to initialize system library and obtain general data and other interfaces ..." alt="" coords="6,5,55,32"/>
+<area shape="rect" id="node2" href="$classSDL2App_1_1App.html" title="SDL2App::App" alt="" coords="104,5,213,32"/>
 </map>
